@@ -1,47 +1,35 @@
 package parole.model;
 
-import java.util.List;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.ListView;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Parole {
 	
-	ListView<String> list = new ListView<String>();
-	ObservableList<String> items =FXCollections.observableArrayList();
+	ArrayList<String> list = new ArrayList<String>();
+	
 	
 	public Parole() {
+		
 	}
 	
 	public void addParola(String p) {
-		
-		items.add(p);
-		list.setItems(items);
+		list.add(p);
+		Collections.sort(list);
 	}
 	
-	public ListView<String> getElenco() {
+	public ArrayList<String> getElenco() {
 		
 		return list;
 	}
 	
 	public void reset() {
-		items.clear();
-		list.setItems(items);
+		list.clear();
 	}
 	
-	public void elimina(String p) {
-		
+	public void elimina(Object o) {
+		list.remove(o);
 	}
 
-	@Override
-	public String toString() {
-		return "Parole [list=" + list + ", items=" + items + "]";
-	}
-
-	public ObservableList<String> getItems() {
-		return items;
-	}
 	
 	
 	
